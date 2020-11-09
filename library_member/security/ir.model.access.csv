@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_member_group_user,Library Member User,model_library_book,base.group_user,1,0,0,0
-access_member_group_system,Library Member System,model_library_book,base.group_system,1,1,1,1
+access_book_group_user,Library Member User,model_library_book,base.group_user,1,0,0,0
+access_book_group_system,Library Member System,model_library_book,base.group_system,1,1,1,1
 access_member_group_user,Member User Access,model_library_member,base.group_user,1,1,1,0
 access_member_group_system,Member Manager Access,model_library_member,base.group_system,1,1,1,1

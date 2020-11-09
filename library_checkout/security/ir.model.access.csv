@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_checkout_group_user,Checkout User,model_library_checkout,base.group_user,1,1,1,0
+access_checkout_line_group_user,Checkout Line User ,model_library_checkout_line,base.group_user,1,1,1,1
+access_checkout_group_system,Checkout Manager,model_library_checkout,base.group_system,1,1,1,1
+access_checkout_group_user,Checkout Stage User,model_library_checkout_stage,base.group_user,1,0,0,0
+access_checkout_stage_group_system,Checkout Stage Manager,model_library_checkout_stage,base.group_system,1,1,1,1
