@@ -28,6 +28,7 @@
         'views/views.xml',
         'views/templates.xml',
         'reports/library_book_report.xml',
+        'views/library_menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

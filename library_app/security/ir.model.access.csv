@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_book_group_user,BookUser,model_library_book,base.group_user,1,0,0,0
 access_book_group_system,BookManager,model_library_book,base.group_system,1,1,1,1
+access_report_group_user,BookReport User,model_library_book_report,base.group_user,1,0,0,0
+access_report_group_system,BookReport System,model_library_book_report,base.group_system,1,1,1,1
