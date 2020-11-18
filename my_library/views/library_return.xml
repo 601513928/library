@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_library_return_form" model="ir.ui.view">
+        <field name="name">Book Return Form</field>
+        <field name="model">mylibrary.return.wizard</field>
+        <field name="arch" type="xml">
+
+            <form> 
+                <group>
+                    <field name="borrower_id" />
+                    <field name="book_ids" />
+                </group>
+                <group>
+                    <button name="books_returns" string="Return the Books"  type="object" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_library_return_menu" model="ir.actions.act_window">
+        <field name="name">Book Return</field>
+        <field name="res_model">mylibrary.return.wizard</field>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+    </record>
+    
+    <menuitem id="menu_library_return" name="Return Book" parent="library_base_menu" action="action_library_return_menu" />
+
+</odoo>

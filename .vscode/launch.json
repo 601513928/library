@@ -13,7 +13,8 @@
             "request": "launch",
             "program": "/home/cjh/workspace/MOTS/odoo/odoo-bin",
 			"console": "integratedTerminal",
-			"env": {},
+            "env": {},
+            "gevent": true,
 			"args": [
 				"-c",
 				"/home/cjh/workspace/MOTS/odoo.conf",

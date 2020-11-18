@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+    <!-- 注意 1 与 0 的 区别 -->
+
+    <record id="base.main_company" model="res.company">
+        <field name="name">Packt publishing</field>
+    </record>
+
+    <!-- <record id="book_cookbook" model="mylibrary.book">
+        <field name="name">demo</field>
+        <field name="pages">10</field>
+        <field name="publisher_id" ref="base.main_partner" />
+    </record> -->
+
+    <record id="res_partner_packt" model="res.partner">
+        <field name="name">Packt Publishing</field>
+        <field name="city">Birmingham</field>
+        <field name="country_id" ref="base.uk" />
+    </record>
+
+    <record id="book_category_all" model="mylibrary.book.category" forcecreate="false">
+        <field name="name">All books</field>
+    </record>
+
+    <!-- <function model="mylibrary.book" name="_update_book_price" /> -->
+<!-- 使用function为指定分类图书加20 -->
+    <!-- <record id="category_demo" model="mylibrary.book.category">
+        <field name="name">AllCategory</field>
+    </record>
+
+    <function model="mylibrary.book" name="update_book_price" eval="(ref('my_library.category_demo'), 20)" /> -->
+</odoo>
+
+
+

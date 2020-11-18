@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mylibrary_book_action" model="ir.actions.act_window">
+        <field name="name">Library Books</field>
+        <field name="res_model">mylibrary.book</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem name="My Library" id="library_base_menu" />
+    <menuitem name="Books" id="library_book_menu" parent="library_base_menu" action="mylibrary_book_action" />
+
+    <record id="mylibrary_book_view_form" model="ir.ui.view">
+        <field name="name">Library Book Form</field>
+        <field name="model">mylibrary.book</field>
+        <field name="arch" type="xml">
+            <form> 
+                <group>
+                    <field name="name" />
+                    <field name="cost_price" />
+                    <field name="retail_price" />
+                    <field name="currency_id" />
+                    <field name="publisher_id" />
+                    <field name="publisher_city" />
+                    <field name="category_id" /> 
+                    <field name="author_ids" widget="many2many_tags" />
+                    <field name="isbn" />
+                    <field name="old_edition" />
+                    <field name="state" />
+                    <field name="manager_remarks" />
+                    <field name="pages" />
+                    <field name="notes" />
+                </group>
+                <group>
+                    <field name="short_name" />
+                    <field name="date_release" />
+                    <field name="age_days" />
+                    <field name="date_updated" />
+                    <field name="ref_doc_id" />
+                    <field name="cover" widget="image" class="oe_avatar" />
+                    <field name="reader_rating" />
+                </group>
+                <group>
+                    <group col="4">
+                        <button name="make_available" string="Make Available" type="object" />
+                        <button name="make_borrowed" string="Make Borrowed" type="object" />
+                        <button name="make_lost" string="Make Lost" type="object" />
+                        <button name="change_update_date" string="Update Date" type="object" />
+                        <button name="get_all_library_member" string="Search All Member" type="object" />
+                        <button name="get_average_cost" string="Average Cost" type="object"  />
+                        <button name="book_rent" string="Rent this book" type="object" class="btn-primary" />
+                        <button name="average_book_occupation" string="Log Average Occ." type="object" class="btn-primary" />
+                        
+                    </group>
+                    <field name="description" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="mylibrary_book_view_tree" model="ir.ui.view">
+        <field name="name">Library Book List</field>
+        <field name="model">mylibrary.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="date_release" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="mylibrary_book_view_search" model="ir.ui.view">
+        <field name="name">Library Book Search</field>
+        <field name="model">mylibrary.book</field>
+        <field name="arch" type="xml" >
+            <search> 
+                <field name="name" />
+                <field name="author_ids"  />
+                <filter string="No Author"
+                        name="withou_author"
+                        domain="[('author_ids', '=', False)]" />
+            </search>
+        </field>
+    </record>
+
+</odoo>

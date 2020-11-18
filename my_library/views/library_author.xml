@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_library_author_form" model="ir.ui.view">
+        <field name="name">Library Author Form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="count_books" />
+                </xpath>
+        </field>
+    </record>
+
+    <record id="action_library_author_menu" model="ir.actions.act_window">
+        <field name="name">Author</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_library_author" name="Author" parent="library_base_menu" action="action_library_author_menu" />
+
+
+</odoo>
