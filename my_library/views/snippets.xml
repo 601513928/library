@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_frontend" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/my_library/static/src/js/snippets.js"/>
+        </xpath>
+    </template>
+    <template id="book_snippet">
+        <section class="book_list">
+            <div class="container">
+                <h2>Latest books</h2>
+                <table class="table book_snippet">
+                    <tr>
+                        <th>Name</th>
+                        <th>Release date</th>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </template>
+</odoo>

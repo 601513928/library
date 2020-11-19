@@ -48,6 +48,13 @@ class ResPartner(models.Model):
         for r in self:
             r.count_books = len(r.authored_book_ids)
 
+class LibraryBookIssues(models.Model):
+    _name = 'book.issue'
+
+    book_id = fields.Many2one('mylibrary.book', required=True)
+    submitted_by = fields.Many2one('res.users')
+    issue_description = fields.Text()
+
 #自己定义的图书模型
 class LibraryBook(models.Model):
     _name = 'mylibrary.book'
@@ -55,7 +62,6 @@ class LibraryBook(models.Model):
     _order = 'date_release desc, name'
     _rec_name = 'short_name'
     _inherit = ['base.archive']
-
 
     manager_remarks = fields.Text('Manager Remarks')
 
@@ -128,7 +134,9 @@ class LibraryBook(models.Model):
     date_release = fields.Date('Release Date')
     isbn = fields.Char('ISBN')
     old_edition = fields.Many2one('mylibrary.book', string="Old Edition")
-
+    image = fields.Binary(attachment=True)
+    html_description = fields.Html()
+    book_issue_id = fields.One2many('book.issue', 'book_id')
     #图书与作者之间的对应
     author_ids = fields.Many2many(
         'res.partner',

@@ -24,4 +24,50 @@ class LibraryReturnWizard(models.TransientModel):
             ('state', '=', 'ongoing'),
             ('borrower_id', '=', self.borrower_id.id)
         ])
+       
         self.book_ids = books_on_rent.mapped('book_id')
+
+        #Python返回一个python字段，包含warning和domain
+        result = {
+            'domain': {
+                'book_ids':[ ('id', 'in', self.book_ids.ids)]
+            }
+        }
+        late_domain = [
+            ('book_id', 'in', self.book_ids.ids),
+            ('return_date', '<', fields.Date.today())
+        ]
+        late_books = rentModel.search(late_domain)
+        if late_books:
+            message = ('Warn the member that the following'
+                        'books are late:\n')
+            titles = late_books.mapped('book_id.name')
+            result['warning'] = {
+                'title': 'Late books',
+                'message': message + '\n'.join(titles)
+            }
+        return result
+    
+    #非管理员归还图书
+    # @api.multi
+    # def return_all_books(self):
+    #     self.ensure_one()
+    #     wizard = self.env['mylibrary.return.wizard']
+
+    #     values = {
+    #         'borrower_id': self.env.user.partner_id.id,
+    #     }
+
+    #     specs = wizard._onchange_spec()
+    #     updates = wizard.onchange(values, ['borrower_id'], specs)
+
+    #     value = updates.get('value', {})
+    #     for name, val in value.items():
+    #         if isinstance(val, tuple):
+    #             value[name] = val[0]
+    #     values.update(value)
+    #     wiz = wizard.create(values)
+    #     return wiz.sudo().books_returns()
+
+
+        

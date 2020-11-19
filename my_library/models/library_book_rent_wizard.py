@@ -6,7 +6,7 @@ class LibraryRentWizard(models.TransientModel):
     
     borrower_id = fields.Many2one('res.partner', string="Borrower")
     book_ids = fields.Many2many('mylibrary.book', string="Books")
-
+    
     def add_book_rents(self):
         rentModel = self.env['mylibrary.book.rent']
         print("+++++++++++++++++++")

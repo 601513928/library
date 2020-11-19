@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+
+
+    <record id="view_library_rent_statistics_tree" model="ir.ui.view">
+        <field name="name">Book Rent Statistics List</field>
+        <field name="model">mylibrary.book.rent.statistics</field>
+        <field name="arch" type="xml">
+
+            <tree> 
+                    <field name="book_id" />
+                    <field name="rent_count" />
+                    <field name="average_occupation" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_library_rent_statistics_menu" model="ir.actions.act_window">
+        <field name="name">Book Rent Statistics</field>
+        <field name="res_model">mylibrary.book.rent.statistics</field>
+        <field name="view_mode">tree</field>
+    </record>
+    
+    <menuitem id="menu_library_rent_statistics" name="Library Rent Statistics" parent="library_base_menu" action="action_library_rent_statistics_menu" />
+
+
+
+
+</odoo>

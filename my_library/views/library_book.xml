@@ -53,6 +53,16 @@
                         <button name="average_book_occupation" string="Log Average Occ." type="object" class="btn-primary" />
                         
                     </group>
+
+                    <group string="Book Issues">
+                        <field name="book_issue_id" nolabel="1">
+                            <tree>
+                                <field name="create_date" />
+                                <field name="submitted_by" />
+                                <field name="issue_description" />
+                            </tree>
+                        </field>
+                    </group>
                     <field name="description" />
                 </group>
             </form>

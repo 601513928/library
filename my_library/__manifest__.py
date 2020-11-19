@@ -9,6 +9,8 @@
     'depends': [
         'base',
         'decimal_precision',
+        'website',
+        'web',
     ],
     'data':[
         
@@ -21,12 +23,15 @@
         'views/library_rent.xml',
         'views/library_rent_wizard.xml',
         'views/library_return.xml',
+        'views/library_book_rent_statistics.xml',
         'data/data.xml',
         'data/demo.xml',
+        'views/templates.xml',
     ],
     'demo':[
 
     ],
+    'post_init_hook': 'add_book_hook',
     'application': True,
 
 }

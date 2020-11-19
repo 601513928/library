@@ -14,7 +14,7 @@
             "program": "/home/cjh/workspace/MOTS/odoo/odoo-bin",
 			"console": "integratedTerminal",
             "env": {},
-            "gevent": true,
+            // "gevent": true,
 			"args": [
 				"-c",
 				"/home/cjh/workspace/MOTS/odoo.conf",

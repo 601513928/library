@@ -22,6 +22,61 @@
         <field name="name">All books</field>
     </record>
 
+
+    <!-- 使用指定的form和tree视图 -->
+    <record id="view_all_customers_tree" model="ir.ui.view">
+        <field name="name">All Customers</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_all_customers_form" model="ir.ui.view">
+        <field name="name">All Customers</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="name" />
+            </form>
+        </field>
+    </record>
+
+
+    <act_window id="action_all_customers"
+                name="All customers"
+                res_model="res.partner"
+                view_mode="tree,form"
+                domain="[('customer', '=', True)]"
+                context="{'default_customer':True}" />
+
+    <record id="action_all_customers_tree"
+        model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_all_customers" />
+        <field name="view_id" ref="view_all_customers_tree" />
+        <field name="view_mode">tree</field>
+        <field name="sequence" eval="2"/>
+    </record>
+
+    <record id="action_all_customers_form" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_all_customers" />
+        <field name="view_id" ref="view_all_customers_form" />
+        <field name="view_mode">form</field>
+        <field name="sequence" eval="2" />
+    </record>
+    
+    <menuitem
+        id="menu_custom_top_level"
+        name="My App menu"
+        web_icon="my_module, static/description/icon.png" />
+
+    <menuitem
+        id="menu_all_customers"
+        name="menu_custom_top_level"
+        action="action_all_customers"
+        sequence="10"/>
+
     <!-- <function model="mylibrary.book" name="_update_book_price" /> -->
 <!-- 使用function为指定分类图书加20 -->
     <!-- <record id="category_demo" model="mylibrary.book.category">
