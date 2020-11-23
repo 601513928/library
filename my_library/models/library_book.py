@@ -250,10 +250,16 @@ class LibraryBook(models.Model):
             else:
                 msg = _('Moving from %s to %s is not allowed') % (book.state, new_state)  # _()函数用于标记字符串可以翻译
                 raise UserError(msg)
+        return True
+
     def make_available(self):
         self.change_state('available')
+        return True
+
+
     def make_borrowed(self):
         self.change_state('borrowed')
+        return True
 
     def make_lost(self):
         self.change_state('lost')

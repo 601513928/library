@@ -3,6 +3,8 @@ from odoo.http import request
 from odoo.addons.website.controllers.main import Website
 from odoo.addons.http_routing.models.ir_http import slug
 from odoo.addons.website.models.ir_http import sitemap_qs2dom
+import os, re
+from openpyxl import Workbook
 class Main(http.Controller):
 
     # def sitemap_books(env, rule, qs):
@@ -102,6 +104,18 @@ class Main(http.Controller):
             'books': request.env['mylibrary.book'].search([]),
             'submitted': post.get('submitted', False)
         })
+
+    def get_file():
+        current_path = os.getcwd()
+        py_list = []
+        path = os.path.join(current_path, 'models')
+        filelist = os.listdir(path)
+        for filename in filelist:
+            de_path = os.path.join(path, filename)
+            if os.path.isfile(de_path):
+                if de_path.endswith(".py"):
+                    py_list.append(de_path)
+        return py_list
 
 class WebsiteInfo(Website):
     

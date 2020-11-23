@@ -27,6 +27,7 @@
         'data/data.xml',
         'data/demo.xml',
         'views/templates.xml',
+        'views/export_books_data.xml',
     ],
     'demo':[
 
